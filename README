@@ -1,0 +1,41 @@
+Installs the Trendsetter infrastructure using chef-solo.
+
+The following is the run list:
+
+{
+    "java": {
+             "install_flavor" : "oracle"
+     },
+    "run_list": [
+      "recipe[apt]",
+      "recipe[python]",
+      "recipe[python::pip]",
+      "recipe[glg::myPreReq]",
+      "recipe[rabbitmq]",
+      "recipe[java]",
+      "recipe[nginx]",
+      "recipe[glg::Install_MySQL_Server]",
+      "recipe[glg::Install_mongodb]",
+      "recipe[glg::Install_tornado]"
+    ]
+}
+
+All cookbooks not prefixed with glg are from github.com/opscode/cookbooks.
+I've verified this install on an absolute barebone ubuntu 11.10 vm
+
+To run:
+I use a knife plugin from : github.com/matschaffer/knife-solo. This plugin adds extends the
+knife api with 'prepare', 'cook', and 'kitchen'. The plugin can be installed via:
+gem install knife-solo
+
+Before running knife - verify that your ~/.chef folder has all the normal stuff ( pem files, knife.rb )
+
+
+download repo ~/solodemo
+cd solodemo
+prepare your node json file ( sample is in nodes/10.115.100.68.json )
+run your knife command to prepare your target: ( sample:  knife prepare ubuntu@10.115.100.68 )
+run your cook command to execute run list ( sample: knife cook ubuntu@10.115.100.68 )
+
+
+
