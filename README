@@ -16,7 +16,6 @@ The following is the run list:
       "recipe[nginx]",
       "recipe[glg::Install_MySQL_Server]",
       "recipe[glg::Install_mongodb]",
-      "recipe[glg::Install_tornado]"
     ]
 }
 
