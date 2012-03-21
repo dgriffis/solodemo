@@ -1,0 +1,18 @@
+{
+    "java": {
+             "install_flavor" : "oracle"
+     },  
+    "run_list": [
+      "recipe[apt]",
+      "recipe[python]",
+      "recipe[python::pip],
+      "recipe[glg::myPreReq]",
+      "recipe[rabbitmq]",
+      "recipe[java]",
+      "recipe[nginx]",
+      "recipe[glg::Install_MySQL_Server]",
+      "recipe[glg::Install_mongodb]",
+      "recipe[glg::Install_tornado]"
+    ]
+}
+
