@@ -24,7 +24,7 @@ All cookbooks not prefixed with glg are from github.com/opscode/cookbooks.
 I've verified this install on an absolute barebone ubuntu 11.10 vm
 
 To run:
-I use a knife plugin from : github.com/matschaffer/knife-solo. This plugin adds extends the
+I use a knife plugin from : github.com/matschaffer/knife-solo. This plugin extends the
 knife api with 'prepare', 'cook', and 'kitchen'. The plugin can be installed via:
 gem install knife-solo
 
