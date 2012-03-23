@@ -26,7 +26,15 @@ end
 
 ruby_block "restart_nginx" do
   block do
-    Chef::Log.info("START NGINX")
+    Chef::Log.info("RESTART NGINX")
     system "sudo /etc/init.d/nginx restart"
   end
 end
+
+ruby_block "restart_rabbitmq" do
+  block do
+    Chef::Log.info("START RABBITMQ")
+    system "sudo /etc/init.d/rabbitmq-server start"
+  end
+end
+
