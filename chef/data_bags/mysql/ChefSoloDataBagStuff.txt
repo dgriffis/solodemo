@@ -1,0 +1,10 @@
+{
+  "name": "data_bag_item_plab-passwords_passwords",
+  "json_class": "Chef::DataBagItem",
+  "chef_type": "data_bag_item",
+  "data_bag": "plab-passwords",
+  "raw_data": {
+    "admin": "JfgUb4DPVOA6ZOffxa4YUA==\n",
+    "id": "passwords"
+  }
+}

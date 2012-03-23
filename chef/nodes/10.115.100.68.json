@@ -1,0 +1,54 @@
+{
+    "solr_user"           : "ubuntu",
+    "trendsetter_root"    : "/home/ubuntu/trendsetter",
+    "councilmembers_path" : "councilmembers",
+    "councilmembers_experimental_path" : "councilmembers-experimental",
+    "evernote_path"       : "evernote",
+    "resumes_path"        : "resumes",
+    "open_projects_path"  : "open_projects",
+    "kdrive_path"         : "kdrive",
+    "CMshingles_path"     : "CMshingles",
+    "CMshingles2x3_path"  : "CMshingles2x3", 
+    "CMshingles2x4_path"  : "CMshingles2x4", 
+    "medline_path"        : "medline",
+    "FDA-debar-path"      : "FDA-Debarment-list",
+    "HHS-path"            : "HHS-Exclusions",
+    "Codes-path"          : "Treatment-codes",
+    "Excluded-path"       : "Excluded-Parties",
+    "AK-path"             : "MedBoard-AK",
+    "AZ-path"             : "MedBoard-AZ",
+    "TN-path"             : "MedBoard-TN",
+    "FL-path"             : "MedBoard-FL",
+    "CO-path"             : "MedBoard-CO",
+    "OH-path"             : "MedBoard-OH",
+    "MO-path"             : "MedBoard-MO",
+    "VT-path"             : "MedBoard-VT",
+    "VT-temp-path"        : "MedBoard-VT-temp",
+    "VT-osteo-path"       : "MedBoard-VT-osteo",
+    "CA-2011-path"        : "MedBoard-CA-2011",
+    "CA-2012-path"        : "MedBoard-CA-2012",
+    "trendsetter"         : {
+		"templates_erb_path"  : "templates",
+		"SOLR_PORT"	      : "8983"
+    },
+    "java": {
+             "install_flavor" : "oracle"
+     },  
+    "run_list": [
+      "recipe[apt]",
+      "recipe[python]",
+      "recipe[python::pip]",
+      "recipe[trendsetter::myPreReq]",
+      "recipe[rabbitmq]",
+      "recipe[java]",
+      "recipe[nginx]",
+      "recipe[trendsetter::Install_MySQL_Server]",
+      "recipe[trendsetter::Install_mongodb]",
+                  "recipe[trendsetter::deploy_trendsetter_solr]",
+		  "recipe[trendsetter::deploy_trendsetter_web]",
+                  "recipe[trendsetter::install_cron]",
+                  "recipe[trendsetter::cleanup]",
+                  "recipe[trendsetter::deploy_trendsetter_services]" 
+    ]
+}
+

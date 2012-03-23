@@ -1,0 +1,78 @@
+server {
+   root /var/www;
+   index index.html;
+
+   client_max_body_size 30M;
+
+   server_name localhost;
+
+   location / {
+      try_files $uri $uri/ /index.html;
+   }
+
+   location /AdvisorDetails_files {
+     root /var/www;
+     add_header Pragma "no-cache";
+   }
+
+   location /VegaSite_files {
+     root /var/www;
+     add_header Pragma "no-cache";
+   }
+
+
+   location /solr {
+      proxy_pass   http://localhost:8983/solr;
+   }
+
+   location /mlt {
+      try_files $uri/ @tornado; 
+   }
+
+   location /cmrecommend { 
+       try_files $uri/ @tornado; 
+   } 
+
+   location /mltrecommend { 
+       try_files $uri/ @tornado; 
+   } 
+
+   location /auto { 
+       try_files $uri/ @tornado; 
+   } 
+
+   location /abtest { 
+       try_files $uri/ @tornado; 
+   } 
+
+   location /getip { 
+       try_files $uri/ @tornado; 
+   } 
+
+   location /abstatus { 
+       try_files $uri/ @tornado; 
+   } 
+
+   location /abrating { 
+       try_files $uri/ @tornado; 
+   } 
+
+   location /ajax { 
+       try_files $uri/ @tornado; 
+   } 
+
+   location /resume { 
+       try_files $uri/ @tornado; 
+   } 
+
+   location /resumejsonp { 
+       try_files $uri/ @tornado; 
+   } 
+
+   location @tornado { 
+       proxy_set_header Host $host; 
+       proxy_set_header X-Real-IP $remote_addr; 
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
+       proxy_pass       http://localhost:5000; 
+   }
+}
