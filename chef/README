@@ -1,4 +1,4 @@
-Installs the Trendsetter infrastructure using chef-solo.
+Installs the infrastructure using chef-solo.
 
 The following is the run list:
 
