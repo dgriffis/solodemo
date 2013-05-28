@@ -1,6 +1,0 @@
-name             "trendsetter"
-version          "1.0.0"
-maintainer       "Gerson Lehrman Group"
-maintainer_email "GLGSearchDev@glgroup.com"
-license          "Proprietary - All rights reserved"
-description      "Installs and configures TrendSetter"
